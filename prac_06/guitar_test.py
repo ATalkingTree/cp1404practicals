@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - Client code to use the Guitar class."""
+"""CP1404/CP5632 Practical - Test program to use the Guitar class."""
 
 
 from prac_06.guitar import Guitar
