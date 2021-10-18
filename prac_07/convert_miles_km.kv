@@ -8,6 +8,7 @@ BoxLayout:
             text: '34'
             font_size: 48
             multiline: False
+            on_text: app.convert(input_number.text)
 
         BoxLayout:
             orientation: 'vertical'
@@ -18,9 +19,9 @@ BoxLayout:
                 text: 'Down'
                 on_press: app.handle_increment(input_number.text, -1)
 
-    Button:
-        text: 'Convert miles to km'
-        on_press: app.convert(input_number.text)
+#    Button:
+#        text: 'Convert miles to km'
+#        on_press: app.convert(input_number.text)
 
     Label:
         text: app.message
