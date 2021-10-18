@@ -22,19 +22,22 @@ class MilesToKilometersApp(App):
 
     def handle_increment(self, number, increment):
         """ increase the number in input field by the increment amount """
-        try:
-            if self.root.ids.input_number.text == "":
-                number = 0
-            result = float(number) + increment
-            self.root.ids.input_number.text = str(result)
-        except ValueError:
-            pass
+        number = self.get_valid_number(number)
+        result = float(number) + increment
+        self.root.ids.input_number.text = str(result)
 
     def convert(self, number):
         """ handle calculation (could be button press or other call), output result to label widget """
+        number = self.get_valid_number(number)
+        result = float(number) * MILES_TO_KM
+        self.message = str(result)
+
+    def get_valid_number(self, number):
+        """ get text input from text entry widget, convert to float
+            return 0 if error, float version of text if valid"""
         try:
-            result = float(number) * MILES_TO_KM
-            self.message = str(result)
+            value = float(self.root.ids.input_number.text)
+            return value
         except ValueError:
             return 0
 
